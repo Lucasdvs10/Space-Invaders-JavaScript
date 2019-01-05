@@ -15,7 +15,7 @@ function setup() {
   var h = 0;
   for(var i = 0; i<num_aliens; i++){
     if((a*30) >= width-30){ //18 colunas
-      h += 20;
+      h += 25;
       a = 1;
     }
     aliens[i].posicao.y += h;
