@@ -15,7 +15,7 @@ function setup() {
   var h = 0;
   for(var i = 0; i<num_aliens; i++){
     if((a*30) >= width-30){ //18 colunas
-      h += 10;
+      h += 20;
       a = 1;
     }
     aliens[i].posicao.y += h;
@@ -44,13 +44,10 @@ function draw() {
 function game_over(){
   for(var i =  0; i<aliens.length; i++){
     if(aliens[i].posicao.y >= height - 40){
-      for(var i =  0; i<aliens.length; i++){
-      aliens[i].vel.mult(0);
-      robber.vel *= 0;
       fill(255);
       textSize(50);
       text("Game Over",80,200);
-      }
+      noLoop();
     }
   }
 }

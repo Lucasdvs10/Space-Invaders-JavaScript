@@ -13,7 +13,7 @@ class Alien {
     if(this.contador == 0){ //a cada um segundo ele anda
       if(this.posicao.x > width-15 || this.posicao.x < 2){ //quando bate no lado da tela, anda para baixo e muda o sentido
         this.vel.x *= -1;
-        this.vel.y += 10;
+        this.vel.y += 20;
       }
       if(this.posicao.x < width-75 && this.posicao.x > 75){ //quando bate no lado da tela, não dá pulo duplo
         this.imprevisivel(); //existe a possibilidade de dar um passo duplo
