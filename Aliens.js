@@ -29,9 +29,9 @@ class Alien {
     for(var i = 0; i<robber.tiro.length; i++){
       let tiro = robber.tiro[i];
       if(tiro.posicao.x >= this.posicao.x && tiro.posicao.x <= this.posicao.x+15 &&
-      tiro.posicao.y >= this.posicao.y && tiro.posicao.y <= this.posicao.y+10 ){
+         tiro.posicao.y >= this.posicao.y && tiro.posicao.y <= this.posicao.y+10 ){
         this.vel.mult(0);
-        robber.tiro = remover(robber.tiro, tiro); //o tiro some se matar o alien
+        robber.tiro = remover(robber.tiro, i); //o tiro some se matar o alien
         this.morto = true;
       }
     }
@@ -53,6 +53,7 @@ class Alien {
     }
   }
   mostrar(){
+    fill(255);
     rect(this.posicao.x,this.posicao.y,15,10);
   }
   faztudo(){

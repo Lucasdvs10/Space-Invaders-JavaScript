@@ -2,6 +2,7 @@
 
 var num_aliens = 40;
 var aliens = [];
+var casas = [];
 
 function setup() {
   createCanvas(300,400);
@@ -10,6 +11,10 @@ function setup() {
   for(var i = 0; i<num_aliens; i++){
     aliens[i] = new Alien(2,100);
   }
+
+  casas[0] = new Casa(width - 270,height - 70);
+  casas[1] = new Casa(width - 170,height - 70);
+  casas[2] = new Casa(width - 70,height - 70);
 
   var a = 1;
   var h = 0;
@@ -30,8 +35,12 @@ function setup() {
 function draw() {
   frameRate(30)
   background(55);
-
   robber.faztudo();
+
+  for(var i = 0; i<casas.length; i++){
+    casas[i].faztudo();
+  }
+
   for(var i = 0; i<aliens.length; i++){
     aliens[i].faztudo();
   }
@@ -46,7 +55,7 @@ function game_over(){
     if(aliens[i].posicao.y >= height - 40){
       fill(255);
       textSize(50);
-      text("Game Over",80,200);
+      text("Game Over",10,200);
       noLoop();
     }
   }
@@ -59,4 +68,10 @@ function vitoria(){
     textSize(50);
     text("Vitória!",80,200);
   }
+}
+
+function remover(array,valor){
+  var temp = array.indexOf(valor);
+  array.splice(valor,1);
+  return array
 }

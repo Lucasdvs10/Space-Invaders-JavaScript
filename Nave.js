@@ -23,6 +23,7 @@ class Nave {
   }
 
   mostrar(){
+    fill(255);
     triangle(this.posicao.x,this.posicao.y,this.posicao.x-10,this.posicao.y+25,this.posicao.x+10,this.posicao.y+25);
   }
 
@@ -43,7 +44,7 @@ atira(){
 
 limpar_array(){ //Remove da array os tiros que já sairam da tela
   for(var i = 0; i<this.tiro.length; i++){
-    if(this.tiro[i].posicao.y < -10){
+    if(this.tiro[i].posicao.y < -10 || this.tiro[i].posicao.y >= height + 80){
       this.tiro = remover(this.tiro, i);
     }
   }
@@ -57,7 +58,7 @@ morrer(){
         this.vel *= 0;
         fill(255);
         textSize(50);
-        text("Game Over",80,200);
+        text("Game Over",10,200);
         noLoop();
       }
     }
@@ -70,11 +71,4 @@ morrer(){
     this.limpar_array();
     this.mostrar();
   }
-}
-
-
-function remover(array,valor){
-  var temp = array.indexOf(valor);
-  array.splice(valor,1);
-  return array
 }
